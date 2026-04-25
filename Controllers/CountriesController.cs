@@ -10,9 +10,8 @@ namespace IPValidatorAssignment.Controllers
     public class CountriesController : ControllerBase
     {
         private readonly IBlockedCountryService _blockedService;
-        //private readonly ILogService _logService;
 
-        public CountriesController(IBlockedCountryService blockedService, ILogService logService)
+        public CountriesController(IBlockedCountryService blockedService)
         {
             _blockedService = blockedService;
         }
@@ -29,7 +28,6 @@ namespace IPValidatorAssignment.Controllers
             {
                 return BadRequest("Country already blocked.");
             }
-                //return result ? Ok("Country blocked.") : BadRequest("Country already blocked.");
         }
 
         [HttpDelete("block/{countryCode}")]
@@ -38,6 +36,7 @@ namespace IPValidatorAssignment.Controllers
             var result = _blockedService.RemoveCountry(countryCode);
             return result ? Ok("Country removed.") : NotFound("Country not exist as blocked.");
         }
+
         [HttpGet("blocked")]
         public IActionResult GetBlockedCountries(string? search, int pageNumber, int pageSize)
         {
@@ -48,15 +47,12 @@ namespace IPValidatorAssignment.Controllers
         [HttpPost("temporal-block")]
         public IActionResult TemporalBlock([FromBody] TemporalBlockRequest request)
         {
-            // 1. Validation: Duration
             if (request.DurationMinutes < 1 || request.DurationMinutes > 1440)
                 return BadRequest("Duration must be between 1 and 1440 minutes.");
 
-            // 2. Validation: Country Code (بسيط: حرفين فقط)
             if (string.IsNullOrEmpty(request.CountryCode) || request.CountryCode.Length != 2)
                 return BadRequest("Invalid country code format.");
 
-            // 3. Action & Duplicate Check
             var added = _blockedService.AddTemporalBlock(request.CountryCode, request.DurationMinutes);
 
             if (!added)

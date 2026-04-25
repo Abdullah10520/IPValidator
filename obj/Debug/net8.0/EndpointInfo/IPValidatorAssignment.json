@@ -126,27 +126,6 @@
         }
       }
     },
-    "/api/IP/validate": {
-      "get": {
-        "tags": [
-          "IP"
-        ],
-        "parameters": [
-          {
-            "name": "ip",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/IP/lookup": {
       "get": {
         "tags": [

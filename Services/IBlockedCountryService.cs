@@ -9,8 +9,6 @@ namespace IPValidatorAssignment.Services
         IEnumerable<string> GetBlockedCountries(string? search, int pageNumber, int pageSize);
         bool IsCountryBlocked(string countryCode);
 
-        //IEnumerable<BlockedAttemptLog> GetAllLogs();
-        //void LogAttempt(BlockedAttemptLog log);
 
         bool AddTemporalBlock(string code, int minutes);
         void RemoveExpiredBlocks();

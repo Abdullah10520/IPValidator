@@ -100,22 +100,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "IPValidatorAssignment.Controllers.IPController",
-    "Method": "ValidateIp",
-    "RelativePath": "api/IP/validate",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ip",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "IPValidatorAssignment.Controllers.LogsController",
     "Method": "GetBlockedLogs",
     "RelativePath": "api/Logs/blocked-attempts",
