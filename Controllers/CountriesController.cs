@@ -1,4 +1,5 @@
-﻿using IPValidatorAssignment.Services;
+﻿using IPValidatorAssignment.Models;
+using IPValidatorAssignment.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,8 +10,9 @@ namespace IPValidatorAssignment.Controllers
     public class CountriesController : ControllerBase
     {
         private readonly IBlockedCountryService _blockedService;
+        //private readonly ILogService _logService;
 
-        public CountriesController(IBlockedCountryService blockedService)
+        public CountriesController(IBlockedCountryService blockedService, ILogService logService)
         {
             _blockedService = blockedService;
         }
@@ -19,7 +21,15 @@ namespace IPValidatorAssignment.Controllers
         public IActionResult AddblockedCountry([FromBody] string countryCode)
         {
             var result = _blockedService.AddCountry(countryCode);
-            return result ? Ok("Country blocked.") : BadRequest("Country already blocked.");
+            if (result)
+            { 
+                return Ok("Country blocked.");
+            }
+            else
+            {
+                return BadRequest("Country already blocked.");
+            }
+                //return result ? Ok("Country blocked.") : BadRequest("Country already blocked.");
         }
 
         [HttpDelete("block/{countryCode}")]
@@ -31,12 +41,28 @@ namespace IPValidatorAssignment.Controllers
         [HttpGet("blocked")]
         public IActionResult GetBlockedCountries(string? search, int pageNumber, int pageSize)
         {
-            var pageBlockedCountries = _blockedService.GetBlockedCountries(pageNumber, pageSize);
-            if (!string.IsNullOrEmpty(search))
-            {
-                pageBlockedCountries = pageBlockedCountries.Where(c => c.Contains(search, StringComparison.OrdinalIgnoreCase));
-            }
+            var pageBlockedCountries = _blockedService.GetBlockedCountries(search, pageNumber, pageSize);
+            
             return Ok(pageBlockedCountries);
+        }
+        [HttpPost("temporal-block")]
+        public IActionResult TemporalBlock([FromBody] TemporalBlockRequest request)
+        {
+            // 1. Validation: Duration
+            if (request.DurationMinutes < 1 || request.DurationMinutes > 1440)
+                return BadRequest("Duration must be between 1 and 1440 minutes.");
+
+            // 2. Validation: Country Code (بسيط: حرفين فقط)
+            if (string.IsNullOrEmpty(request.CountryCode) || request.CountryCode.Length != 2)
+                return BadRequest("Invalid country code format.");
+
+            // 3. Action & Duplicate Check
+            var added = _blockedService.AddTemporalBlock(request.CountryCode, request.DurationMinutes);
+
+            if (!added)
+                return Conflict("This country is already temporarily blocked.");
+
+            return Ok($"Country {request.CountryCode} blocked for {request.DurationMinutes} minutes.");
         }
     }
 }

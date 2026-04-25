@@ -1,4 +1,5 @@
 
+using IPValidatorAssignment.Repositories;
 using IPValidatorAssignment.Services;
 
 namespace IPValidatorAssignment
@@ -18,6 +19,14 @@ namespace IPValidatorAssignment
 
 
             builder.Services.AddSingleton<IBlockedCountryService, BlockedCountryService>();
+            builder.Services.AddHttpClient<IGeolocationService, GeolocationService>(client =>
+            {
+                client.BaseAddress = new Uri("https://api.ipgeolocation.io/");
+            });
+
+            builder.Services.AddHostedService<TemporalBlockCleanupService>();
+            builder.Services.AddSingleton<IBlockCountryRepository, BlockCountryRepository>();
+            builder.Services.AddSingleton<ILogService, LogService>();
 
 
             var app = builder.Build();

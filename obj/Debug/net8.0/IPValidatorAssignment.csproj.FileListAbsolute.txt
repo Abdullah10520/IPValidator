@@ -6,6 +6,14 @@ C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debu
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\IPValidatorAssignment.runtimeconfig.json
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\IPValidatorAssignment.dll
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\IPValidatorAssignment.pdb
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\abdal\source\repos\IPValidatorAssignment\IPValidatorAssignment\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll

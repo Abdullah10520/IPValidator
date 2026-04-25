@@ -56,5 +56,84 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IPValidatorAssignment.Controllers.CountriesController",
+    "Method": "TemporalBlock",
+    "RelativePath": "api/Countries/temporal-block",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "IPValidatorAssignment.Models.TemporalBlockRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IPValidatorAssignment.Controllers.IPController",
+    "Method": "CheckBlock",
+    "RelativePath": "api/IP/check-block",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IPValidatorAssignment.Controllers.IPController",
+    "Method": "lookup",
+    "RelativePath": "api/IP/lookup",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ip",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IPValidatorAssignment.Controllers.IPController",
+    "Method": "ValidateIp",
+    "RelativePath": "api/IP/validate",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ip",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IPValidatorAssignment.Controllers.LogsController",
+    "Method": "GetBlockedLogs",
+    "RelativePath": "api/Logs/blocked-attempts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
