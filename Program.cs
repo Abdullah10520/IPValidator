@@ -1,4 +1,6 @@
 
+using IPValidatorAssignment.Services;
+
 namespace IPValidatorAssignment
 {
     public class Program
@@ -13,6 +15,10 @@ namespace IPValidatorAssignment
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+            builder.Services.AddSingleton<IBlockedCountryService, BlockedCountryService>();
+
 
             var app = builder.Build();
 
