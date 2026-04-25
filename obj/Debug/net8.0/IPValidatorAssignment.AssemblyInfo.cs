@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IPValidatorAssignment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f966c143e7f6700119cd84b97fc287fc3d7475da")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+999f19fb48d569c6b11662d95c2d2b46d3f80cfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("IPValidatorAssignment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IPValidatorAssignment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
